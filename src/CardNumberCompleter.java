@@ -27,7 +27,7 @@ public class CardNumberCompleter {
 		return Integer.parseInt(code.substring(code.length() - 1));
 	}
 	
-	public static int missingNumber(String code) {
+	public static int intermediateNumber(String code) {
 		String newCode = code.replace('*', '0');
 		int badChecksum = checksum(newCode);
 		int weightedNumber = Math.abs(badChecksum - lastDigit(code));
@@ -37,14 +37,7 @@ public class CardNumberCompleter {
 		return weightedNumber;
 	}
 	
-	public static void main(String[] args) {
-		// Example credit card input with missing digit
-		String code = "51780581368*2211";
-		// If the number is missing the last digit (checksum)
-		if (code.charAt(code.length() - 1) == '*') {
-			System.out.println(checksum(code));
-		} else { // If an intermediate digit is missing
-			System.out.println(missingNumber(code));
-		}
+	public static int findMissingNumber(String code) {
+		return (code.charAt(code.length() - 1) == '*') ? checksum(code) : intermediateNumber(code);
 	}
 }
