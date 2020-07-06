@@ -1,7 +1,7 @@
-import javax.swing.*;
 
-public class CardNumberCompleter {
+public class Complete {
 	
+	// 
 	public static int[] numStringToArray(String string) {
 		int[] numArray = new int[string.length()];
 		for (int i = 0; i < string.length(); i++) {
